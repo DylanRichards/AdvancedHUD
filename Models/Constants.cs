@@ -5,5 +5,6 @@
         public static readonly string RIGHT_CAR = "rightcar";
         public static readonly string LEFT_CAR = "leftcar";
         public static readonly string LOW_FUEL = "lowfuel";
+        public static readonly string ENGINE_LIGHT = "engine";
     }
 }

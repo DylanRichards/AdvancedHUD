@@ -15,6 +15,7 @@ namespace AdvancedHUD.Models
             alerts.Add(Constants.LEFT_CAR, "none");
             alerts.Add(Constants.RIGHT_CAR, "none");
             alerts.Add(Constants.LOW_FUEL, "none");
+            alerts.Add(Constants.ENGINE_LIGHT, "none");
         }
 
         public void AddNotification(Notification notification)

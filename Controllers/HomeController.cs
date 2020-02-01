@@ -60,6 +60,12 @@ namespace AdvancedHUD.Controllers
                     case "lowfueloff":
                         mHUD.alerts[Constants.LOW_FUEL] = "none";
                         break;
+                    case "engineon":
+                        mHUD.alerts[Constants.ENGINE_LIGHT] = "unset";
+                        break;
+                    case "engineoff":
+                        mHUD.alerts[Constants.ENGINE_LIGHT] = "none";
+                        break;
                 }
             } else if (!string.IsNullOrEmpty(phone))
             {
