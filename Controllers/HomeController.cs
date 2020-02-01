@@ -1,8 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Diagnostics;
-using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using AdvancedHUD.Models;
@@ -45,11 +42,17 @@ namespace AdvancedHUD.Controllers
             {
                 switch (car)
                 {
-                    case "leftcar":
-                        notification.content = "There is a car in the Left Lane";
+                    case "leftcarin":
+                        mHUD.alerts[Constants.LEFT_CAR] = "red";
                         break;
-                    case "rightcar":
-                        notification.content = "There is a car in the Right Lane";
+                    case "rightcarin":
+                        mHUD.alerts[Constants.RIGHT_CAR] = "red";
+                        break;
+                    case "leftcarempty":
+                        mHUD.alerts[Constants.LEFT_CAR] = "none";
+                        break;
+                    case "rightcarempty":
+                        mHUD.alerts[Constants.RIGHT_CAR] = "none";
                         break;
                 }
             } else if (!string.IsNullOrEmpty(phone))
@@ -57,15 +60,17 @@ namespace AdvancedHUD.Controllers
                 switch (phone)
                 {
                     case "tweet":
+                        notification.imagePath = "../images/twitter.png";
                         notification.content = "@DylanRichards81 published new Tweet";
                         break;
                     case "sms":
                         notification.content = "New Text message from Dylan Richards";
                         break;
                 }
-            }
 
-            mHUD.AddNotification(notification);
+                mHUD.AddNotification(notification);
+                mHUD.RemoveExtraNotification();
+            }
 
             return RedirectToAction("Display");
         }

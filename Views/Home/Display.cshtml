@@ -10,16 +10,38 @@
         position: absolute;
         bottom: 650px;
         left: 250px;
-        font-size: 18px;
+        font-size: 14px;
         background-color: rgb(255, 255, 255, 0.5);
         opacity: 0.9;
+    }
+
+    .blindspot_right {
+        background-color: @Model.alerts[Constants.RIGHT_CAR].ToString();
+    }
+
+    .blindspot_left {
+        background-color: @Model.alerts[Constants.LEFT_CAR].ToString();
     }
 </style>
 <div class="container" style="background-image: url('../images/driving.png'); height: 1024px;">
     <div class="hud">
-        @foreach (var notification in Model.notifications)
-        {
-            <p>@Html.DisplayFor(modelItem => notification.content)</p>
-        }
+        <div class="row">
+            <div class="col-3, blindspot_left" style="height: 200px; width:20px;"></div>
+            <div class="col">
+                @foreach (var notification in Model.notifications)
+                {
+                    <div class="row" style="padding-left:5px;">
+                        <div class="col-3">
+                            <img src="@notification.imagePath" width="50px" style="opacity:0.3;" />
+                        </div>
+                        <div class="col">
+                            <p>@Html.DisplayFor(modelItem => notification.content)</p>
+                        </div>
+                    </div>
+                }
+            </div>
+            <div class="col-3, blindspot_right" style="height: 200px; width:20px;"></div>
+        </div>
+
     </div>
 </div>
