@@ -23,6 +23,11 @@ namespace AdvancedHUD.Controllers
             return View();
         }
 
+        public IActionResult Display()
+        {
+            return View();
+        }
+
         public IActionResult Privacy()
         {
             return View();
