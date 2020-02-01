@@ -1,4 +1,4 @@
-﻿@model Dashboard 
+﻿@model Dashboard
 @{
     ViewData["Title"] = "Home Page";
 }
@@ -21,6 +21,17 @@
                 <input autofocus placeholder="Enter Text" asp-for="Message">
                 <button name="phone" value="tweet" type="submit">New Tweet</button>
                 <button name="phone" value="sms" type="submit">New Text Message</button>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-3">
+                <button name="car" value="lowfuelon" type="submit">Low Fuel Light</button>
+                <button name="car" value="lowfueloff" type="submit">Turn off Fuel Light</button>
+            </div>
+        </div>
+        <div class="row" style="padding-top:100px;">
+            <div class="col-3">
+                <button name="clear" value="clear" type="submit">Clear Notifications</button>
             </div>
         </div>
     </form>

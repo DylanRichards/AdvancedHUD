@@ -14,6 +14,7 @@ namespace AdvancedHUD.Models
         {
             alerts.Add(Constants.LEFT_CAR, "none");
             alerts.Add(Constants.RIGHT_CAR, "none");
+            alerts.Add(Constants.LOW_FUEL, "none");
         }
 
         public void AddNotification(Notification notification)
@@ -23,11 +24,12 @@ namespace AdvancedHUD.Models
 
         public void RemoveExtraNotification()
         {
-            if(notifications.Count > 4)
-            {
-                notifications.Dequeue();
-            }
-            
+            if(notifications.Count > 4) notifications.Dequeue();
+        }
+
+        public void ClearNotifications()
+        {
+            notifications = new Queue<Notification>();
         }
 
     }

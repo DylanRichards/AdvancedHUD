@@ -34,7 +34,7 @@ namespace AdvancedHUD.Controllers
         }
 
         [HttpPost]
-        public RedirectToActionResult DashboardClicked(Dashboard dashboard, string car, string phone)
+        public RedirectToActionResult DashboardClicked(Dashboard dashboard, string car, string phone, string clear)
         {
             Notification notification = new Notification();
 
@@ -54,6 +54,12 @@ namespace AdvancedHUD.Controllers
                     case "rightcarempty":
                         mHUD.alerts[Constants.RIGHT_CAR] = "none";
                         break;
+                    case "lowfuelon":
+                        mHUD.alerts[Constants.LOW_FUEL] = "unset";
+                        break;
+                    case "lowfueloff":
+                        mHUD.alerts[Constants.LOW_FUEL] = "none";
+                        break;
                 }
             } else if (!string.IsNullOrEmpty(phone))
             {
@@ -71,6 +77,9 @@ namespace AdvancedHUD.Controllers
 
                 mHUD.AddNotification(notification);
                 mHUD.RemoveExtraNotification();
+            } else if (!string.IsNullOrEmpty(clear))
+            {
+                mHUD.ClearNotifications();
             }
 
             return RedirectToAction("Index");
