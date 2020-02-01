@@ -13,6 +13,8 @@ namespace AdvancedHUD.Controllers
     {
         private readonly ILogger<HomeController> _logger;
 
+        public HUD mHUD = new HUD();
+
         public HomeController(ILogger<HomeController> logger)
         {
             _logger = logger;
@@ -25,7 +27,7 @@ namespace AdvancedHUD.Controllers
 
         public IActionResult Display()
         {
-            return View();
+            return View(mHUD);
         }
 
         public IActionResult Privacy()
