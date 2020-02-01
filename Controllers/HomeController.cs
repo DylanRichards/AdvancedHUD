@@ -20,7 +20,7 @@ namespace AdvancedHUD.Controllers
         [HttpGet]
         public IActionResult Index()
         {
-            return View();
+            return View(new Dashboard());
         }
 
         public IActionResult Privacy()
@@ -34,7 +34,7 @@ namespace AdvancedHUD.Controllers
         }
 
         [HttpPost]
-        public RedirectToActionResult DashboardClicked(string car, string phone)
+        public RedirectToActionResult DashboardClicked(Dashboard dashboard, string car, string phone)
         {
             Notification notification = new Notification();
 
@@ -61,10 +61,11 @@ namespace AdvancedHUD.Controllers
                 {
                     case "tweet":
                         notification.imagePath = "../images/twitter.png";
-                        notification.content = "@DylanRichards81 published new Tweet";
+                        notification.content = dashboard.Message;
                         break;
                     case "sms":
-                        notification.content = "New Text message from Dylan Richards";
+                        notification.imagePath = "../images/sms.jpg";
+                        notification.content = dashboard.Message;
                         break;
                 }
 
