@@ -3,6 +3,12 @@
     ViewData["Title"] = "Home Page";
 }
 
+<style>
+    button{
+        width:100%;
+    }
+</style>
+
 <div class="container">
     <div class="text-center">
         <h1 class="display-4">Welcome To CMU Designathon</h1>
@@ -18,7 +24,7 @@
                 <button name="car" value="rightcarempty" type="submit">Car NOT in Right Lane</button>
             </div>
             <div class="col-6">
-                <input autofocus placeholder="Enter Text" asp-for="Message">
+                <input style="width:100%" autofocus placeholder="Enter Text" asp-for="Message">
                 <button name="phone" value="tweet" type="submit">New Tweet</button>
                 <button name="phone" value="sms" type="submit">New Text Message</button>
             </div>
@@ -33,7 +39,7 @@
                 <button name="car" value="engineoff" type="submit">Turn off Check Engine Light</button>
             </div>
         </div>
-        <div class="row" style="padding-top:100px;">
+        <div class="row justify-content-end">
             <div class="col-3">
                 <button name="clear" value="clear" type="submit">Clear Notifications</button>
             </div>
