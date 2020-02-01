@@ -1,13 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Drawing;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.Drawing;
 
 namespace AdvancedHUD.Models
 {
     public class Notification
     {
+        public string style;
         public string content;
         public Image image;
     }

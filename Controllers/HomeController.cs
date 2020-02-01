@@ -13,14 +13,20 @@ namespace AdvancedHUD.Controllers
     {
         private readonly ILogger<HomeController> _logger;
 
-        public HUD mHUD = new HUD();
+        public static HUD mHUD = new HUD();
 
         public HomeController(ILogger<HomeController> logger)
         {
             _logger = logger;
         }
 
+        [HttpGet]
         public IActionResult Index()
+        {
+            return View();
+        }
+
+        public IActionResult Privacy()
         {
             return View();
         }
@@ -30,9 +36,38 @@ namespace AdvancedHUD.Controllers
             return View(mHUD);
         }
 
-        public IActionResult Privacy()
+        [HttpPost]
+        public RedirectToActionResult DashboardClicked(string car, string phone)
         {
-            return View();
+            Notification notification = new Notification();
+
+            if (!string.IsNullOrEmpty(car))
+            {
+                switch (car)
+                {
+                    case "leftcar":
+                        notification.content = "There is a car in the Left Lane";
+                        break;
+                    case "rightcar":
+                        notification.content = "There is a car in the Right Lane";
+                        break;
+                }
+            } else if (!string.IsNullOrEmpty(phone))
+            {
+                switch (phone)
+                {
+                    case "tweet":
+                        notification.content = "@DylanRichards81 published new Tweet";
+                        break;
+                    case "sms":
+                        notification.content = "New Text message from Dylan Richards";
+                        break;
+                }
+            }
+
+            mHUD.AddNotification(notification);
+
+            return RedirectToAction("Display");
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]

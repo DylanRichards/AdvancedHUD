@@ -16,12 +16,10 @@
     }
 </style>
 <div class="container" style="background-image: url('../images/driving.png'); height: 1024px;">
-    <h1>@Model.test</h1>
     <div class="hud">
         @foreach (var notification in Model.notifications)
         {
             <p>@Html.DisplayFor(modelItem => notification.content)</p>
         }
     </div>
-
 </div>
