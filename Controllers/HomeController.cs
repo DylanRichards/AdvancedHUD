@@ -72,7 +72,7 @@ namespace AdvancedHUD.Controllers
                 mHUD.RemoveExtraNotification();
             }
 
-            return RedirectToAction("Display");
+            return RedirectToAction("Index");
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
